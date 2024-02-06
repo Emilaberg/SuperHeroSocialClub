@@ -1,0 +1,20 @@
+﻿@page
+@model SuperheroSocialClub.Pages.Auth.RegisterModel
+@{
+}
+
+
+<div>Please Register to use our service</div>
+
+<div>
+    <form method="Post">
+        <label>Username</label>
+        <input type="text" placeholder="your username" asp-for="@Model.Username"/>
+        <label>Password</label>
+        <input type="password" placeholder="your password" asp-for="@Model.Password"/>
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Confirm your password" asp-for="@Model.ConfirmPassword"/>
+        <input class="btn btn-primary" type="submit" />
+    </form>
+    
+</div>
