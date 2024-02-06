@@ -5,16 +5,15 @@ namespace SuperheroSocialClub.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
+        public static bool isLoggedIn { get; set; } = false;
+        public int SuperHeroId { get; set; } = 1;
+        public IActionResult OnGet()
         {
-            _logger = logger;
-        }
-
-        public void OnGet()
-        {
-
+            if (!isLoggedIn)
+            {
+                return RedirectToPage("/auth/login");
+            }
+            return Page();
         }
     }
 }
