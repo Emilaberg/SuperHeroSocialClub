@@ -5,9 +5,9 @@
 }
 
 
-<div>Welcome to the homescreen</div>
+<div>Welcome @Model.SignedInUser.Username to the homescreen</div>
 
 <div>
-    <span>clark kent</span><a asp-page="/Edit" asp-route-id="@Model.SuperHeroId">Edit</a>
+    <span>clark kent</span><a asp-page="/Edit" asp-route-id="@Model.SignedInUser.Id">Edit</a>
 </div>
 

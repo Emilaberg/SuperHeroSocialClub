@@ -16,13 +16,13 @@ namespace SuperheroSocialClub.Managers
 
         public static bool ValidateUsername(string username)
         {
-            bool isValidUsername = true;
+            bool isValidUsername = false;
 
             foreach (var user in Users)
             {
                 if (user.Username == username)
                 {
-                    isValidUsername = false;
+                    isValidUsername = true;
                 }
             }
             return isValidUsername;
@@ -30,7 +30,7 @@ namespace SuperheroSocialClub.Managers
 
         public static UserModel? RegisterUser(string username, string password)
         {
-            if (ValidateUsername(username))
+            if (ValidateUsername(username) == false)
             {
                 UserModel newUser = new UserModel
                 {
