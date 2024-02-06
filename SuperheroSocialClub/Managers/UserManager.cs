@@ -2,9 +2,9 @@
 
 namespace SuperheroSocialClub.Managers
 {
-    public class UserManager
+    public static class UserManager
     {
-        public List<UserModel> Users { get; set; } = new()
+        public static List<UserModel> Users { get; set; } = new()
         {
             new UserModel { Id = 1, Password = "pass", Username = "user" }
         };
