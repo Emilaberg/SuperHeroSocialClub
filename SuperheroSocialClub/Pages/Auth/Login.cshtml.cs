@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SuperheroSocialClub.Managers;
 
 namespace SuperheroSocialClub.Pages.Auth
 {
@@ -18,8 +19,18 @@ namespace SuperheroSocialClub.Pages.Auth
             //kör validationController
             //om det är korrekt logga in o redirecta till mainpage
             // returnerar ett id som vi kan skicka med
-            IndexModel.isLoggedIn = true;
-            return RedirectToPage("/Index");
+            if(!UserManager.ValidateUsername(Username))
+            {
+                return Page();
+                
+            }else
+            {
+                if (!UserManager.SignInUser(Username, Password))
+                {
+                    return Page();
+                }
+                return RedirectToPage("/Index", UserManager.SignedInUser!.Id);
+            }
         }
     }
 }
